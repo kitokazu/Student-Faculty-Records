@@ -12,6 +12,8 @@ class Window
         Window();     //deez 
         //
     private:
-        //
+        //Checks if the window is being used or not
+        bool isUsed;
+        //St
 };
 #endif
