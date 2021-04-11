@@ -12,7 +12,7 @@ class GenQueue {
         GenQueue();
         GenQueue(int maxSize);
         ~GenQueue();
-        DoublyLinkedList<T> linkedlist = new DoublyLinkedList<T>;
+        DoublyLinkedList<T> *linkedlist = new DoublyLinkedList<T>;
         //core functions
         void insert(T d); //aka enqueue
         T remove(); //aka dequeue

@@ -38,7 +38,7 @@ ListNode<T>::~ListNode() {
 
 //DoublyLinkedList Template Class
 template <typename T>
-class DoublyLinkedList : List
+class DoublyLinkedList : List<T>
 {
     private:
         ListNode<T> *front;
@@ -70,6 +70,8 @@ template <typename T>
 DoublyLinkedList<T>::~DoublyLinkedList() {
     //Lets build some character
     //what do we do here
+    delete front;
+    delete back;
 }
 
 template <typename T>
@@ -242,6 +244,17 @@ void DoublyLinkedList<T>::insertBack(T data) {
     }
     back = node;
     listSize++;
+}
+
+
+template <typename T>
+void DoublyLinkedList<T>::clearList() {
+
+}
+
+template <typename T>
+size_t DoublyLinkedList<T>::getSize() {
+    
 }
 
 #endif
