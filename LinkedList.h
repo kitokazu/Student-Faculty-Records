@@ -3,6 +3,8 @@
 
 #include <iostream>
 #include <string>
+#include "List.h"
+
 using namespace std;
 
 template <typename T>
@@ -32,12 +34,12 @@ ListNode<T>::~ListNode() {
     next = nullptr;
     prev = nullptr;
     //More code that needs to go here
-}
-
+};
 
 //DoublyLinkedList Template Class
 template <typename T>
-class DoublyLinkedList {
+class DoublyLinkedList : List
+{
     private:
         ListNode<T> *front;
         ListNode<T> *back;
@@ -45,16 +47,16 @@ class DoublyLinkedList {
     public:
         DoublyLinkedList();
         ~DoublyLinkedList();
-        void insertFront(T data);
-        void insertBack(T data);
-        void clearList();
-        T removeFront();
-        T removeBack();
-        T remove(int key);
-        int find(int value);
-        bool isEmpty();
-        size_t getSize();
-        void printList(bool printLink);
+        virtual void insertFront(T data);
+        virtual void insertBack(T data);
+        virtual void clearList();
+        virtual T removeFront();
+        virtual T removeBack();
+        virtual T remove(int key);
+        virtual int find(int value);
+        virtual bool isEmpty();
+        virtual size_t getSize();
+        virtual void printList(bool printLink);
 };
 
 template <typename T>

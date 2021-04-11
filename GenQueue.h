@@ -1,6 +1,7 @@
 #ifndef GENQUEUE_H
 #define GENQUEUE_H
 #include <iostream>
+#include "List.h"
 #include "LinkedList.h"
 
 using namespace std;
@@ -11,7 +12,7 @@ class GenQueue {
         GenQueue();
         GenQueue(int maxSize);
         ~GenQueue();
-
+        DoublyLinkedList<T> linkedlist = new DoublyLinkedList<T>;
         //core functions
         void insert(T d); //aka enqueue
         T remove(); //aka dequeue
@@ -38,7 +39,6 @@ GenQueue<T>::GenQueue(){
 
 template <typename T>
 GenQueue<T>::GenQueue(int d){
-    linkedlist = new DoublyLinkedList<T>;
 }
 
 template <typename T>
@@ -57,8 +57,13 @@ T GenQueue<T>::remove(){
 }
 
 template <typename T>
-bool GenQueue<T>::isFull() {
-    
+bool GenQueue<T>::isEmpty() {
+    return linkedlist->isEmpty();
+}
+
+template <typename T>
+int GenQueue<T>::getSize() {
+    return linkedlist->getSize();
 }
 
 
