@@ -10,7 +10,6 @@ class FileProcessor{
   public:
     FileProcessor();
     ~FileProcessor();
-    string getFile(string inputFile);
-    string writeFile(string outputFile);
+    void getFile(string inputFile);
 
 };
