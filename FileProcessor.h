@@ -6,6 +6,7 @@ using namespace std;
 
 class FileProcessor{
   private:
+    int num_windows;
   public:
     FileProcessor();
     ~FileProcessor();

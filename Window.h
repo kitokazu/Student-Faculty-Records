@@ -21,7 +21,7 @@ class Window
         void setIdleTime(int time);
         //Methods
         bool isUsed();
-        Student* Decrement();
+        bool Decrement();
         bool operator == (Window w);
         bool operator != (Window w);
 

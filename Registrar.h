@@ -1,8 +1,10 @@
 #include <iostream>
 #include "Window.h"
 #include "GenQueue.h"
+#include <vector>
 #ifndef REGISTRAR_H
 #define REGISTRAR_H
+
 
 
 using namespace std;
@@ -13,7 +15,7 @@ class Registrar
         //Default Constructor
         Registrar();
         //Overloaded Constructor
-        Registrar(int numOfWindows, int numOfStudentsArriving); 
+        Registrar(int numOfWindows); 
         //Deconstructor
         ~Registrar();
         //Getters
@@ -21,21 +23,19 @@ class Registrar
         void setWindows(Window *windows);
         void setStudents();
         //Methods
-        void RunSimulation();
+        void RunSimulation(vector<Student> students);
         void calculateStatistics(); 
         bool windowsAreEmpty();
 
 
     private:
-        //Array of windows that is the number if windows
-        Window *m_windows;
-        //Array of all the students that will arrive to the Registrar
-        Student *m_students;
-        //Variable that stores the total number of windows
-        int m_numOfWindows;
+        //Vector of windows that is the number if windows
+        vector<Window> m_windows;
+        //Vectpr of all the students that will arrive to the Registrar
+        vector<Student> m_students;
         //Variable that stores the current time in ticks
         int m_time;
-        GenQueue<Student> waitingQueue;
+        GenQueue<Student> *m_waitingQueue;
  
         
 };

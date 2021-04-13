@@ -92,7 +92,7 @@ T DoublyLinkedList<T>::remove(T key)
         current = current->next;
         if(current == 0)
         {
-            return 0; //done no need to proceed
+            return T(); //done no need to proceed
         }
     }
     
@@ -173,7 +173,7 @@ T DoublyLinkedList<T>::removeFront() {
     //throw exception
     if ((front == 0) && (back == 0)) {
         cout << "ERROR" << endl;
-        return 0;
+        return T();
     }
 
     if(front->next == 0){

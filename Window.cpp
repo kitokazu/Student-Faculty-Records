@@ -43,7 +43,7 @@ bool Window::isUsed()
     return true;
 }
 //Decrements the time left on the student at this window or increases the idle time for the window
-Student* Window::Decrement()
+bool Window::Decrement()
 {
     if(m_student == 0)
     {
@@ -54,13 +54,13 @@ Student* Window::Decrement()
         //If time is 0 student = null else remove one tick from student 
         if(m_student->getTimeLeft() == 0)
         {
-            return m_student;
+            return false;
             
         }
         else
         {
             m_student->setTimeLeft(m_student->getTimeLeft()-1);
-            return 0;
+            return true;
         }
         
     }
