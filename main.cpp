@@ -1,8 +1,7 @@
 #include <string>
 #include <iostream>
 #include "GenQueue.h"
-#include "List.h"
-#include "LinkedList.h"
+#include "Registrar.h"
 
 using namespace std;
 

@@ -52,11 +52,11 @@ class DoublyLinkedList : List<T>
         virtual void clearList();
         virtual T removeFront();
         virtual T removeBack();
-        virtual T remove(int key);
-        virtual int find(int value);
+        virtual T remove(T key);
+        virtual int find(T value);
         virtual bool isEmpty();
         virtual size_t getSize();
-        virtual void printList(bool printLink);
+        //virtual void printList(bool printLink);
 };
 
 template <typename T>
@@ -84,7 +84,7 @@ bool DoublyLinkedList<T>::isEmpty(){
 }
 
 template <typename T>
-T DoublyLinkedList<T>::remove(int key) 
+T DoublyLinkedList<T>::remove(T key) 
 {
     ListNode<T> *current = front;
     while(current->data != key)
@@ -122,7 +122,7 @@ T DoublyLinkedList<T>::remove(int key)
 }
 
 template <typename T>
-int DoublyLinkedList<T>::find(int value) {
+int DoublyLinkedList<T>::find(T value) {
     int i = -1;
     ListNode<T> *current = front;
     while(current != 0) {
@@ -141,7 +141,7 @@ int DoublyLinkedList<T>::find(int value) {
     return i;
 }
 
-template <typename T>
+/*template <typename T>
 void DoublyLinkedList<T>::printList(bool printLink)
 {
     ListNode<T> *current = front;
@@ -163,7 +163,7 @@ void DoublyLinkedList<T>::printList(bool printLink)
        }
     }
     cout << endl;
-}
+}*/
 
 template <typename T>
 T DoublyLinkedList<T>::removeFront() {

@@ -43,7 +43,7 @@ bool Window::isUsed()
     return true;
 }
 //Decrements the time left on the student at this window or increases the idle time for the window
-void Window::Decrement()
+Student* Window::Decrement()
 {
     if(m_student == 0)
     {
@@ -54,16 +54,34 @@ void Window::Decrement()
         //If time is 0 student = null else remove one tick from student 
         if(m_student->getTimeLeft() == 0)
         {
-            //Delete student?????
-            m_student = 0;
+            return m_student;
             
         }
         else
         {
             m_student->setTimeLeft(m_student->getTimeLeft()-1);
+            return 0;
         }
         
     }
     
     
+}
+bool Window::operator == (Window w)
+{
+    //Checks if the variables are the same
+    if(m_student == w.m_student && m_idleTime == w.m_idleTime)
+    {
+        return true;
+    }
+    return false;
+}
+bool Window::operator != (Window w)
+{
+    //Checks if the variables are the same
+    if(m_student != w.m_student || m_idleTime != w.m_idleTime)
+    {
+        return true;
+    }
+    return true;
 }

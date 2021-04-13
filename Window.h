@@ -20,12 +20,10 @@ class Window
         void setStudent(Student *student);
         void setIdleTime(int time);
         //Methods
-        //Checks if the window is being used or not
         bool isUsed();
-        //Decrements the time left on the student at this window
-        void Decrement();
-        //If time is 0 student = null else remove one tick from student 
-
+        Student* Decrement();
+        bool operator == (Window w);
+        bool operator != (Window w);
 
     private:
         //Student object that holds the student currently at the window

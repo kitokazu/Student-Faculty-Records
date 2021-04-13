@@ -49,3 +49,21 @@ void Student::setTimeWaiting(int time)
 {
     m_timeWaiting = time;
 }
+bool Student::operator == (Student s)
+{
+    //Checks if the variables are the same
+    if((m_timeArriving == s.m_timeArriving) && (m_timeLeft == s.m_timeLeft) && (m_totalTime == s.m_totalTime) && (m_timeWaiting == s.m_timeWaiting))
+    {
+        return true;
+    }
+    return false;
+}
+bool Student::operator != (Student s)
+{
+    //Checks if the variables are the same
+    if((m_timeArriving != s.m_timeArriving) || (m_timeLeft != s.m_timeLeft) || (m_totalTime != s.m_totalTime) || (m_timeWaiting != s.m_timeWaiting))
+    {
+        return true;
+    }
+    return false;
+}

@@ -24,6 +24,9 @@ class Student
         void setTotalTime(int time);
         void setTimeArriving(int time);
         void setTimeWaiting(int time);
+        //Methods
+        bool operator == (Student s);
+        bool operator != (Student s);
     private:
         //Integer that holds the total time standing at the window
         int m_totalTime;

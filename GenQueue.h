@@ -18,7 +18,7 @@ class GenQueue {
         T remove(); //aka dequeue
 
         //aux functions
-        void printArray();
+        //void printArray();
         void enqueue(T data);
         T peek();
         bool isFull();
