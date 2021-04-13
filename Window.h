@@ -14,10 +14,10 @@ class Window
         //Deconstructor
         ~Window();
         //Getters
-        Student* getStudent();
+        Student getStudent();
         int getIdleTime();
         //Setters
-        void setStudent(Student *student);
+        void setStudent(Student student);
         void setIdleTime(int time);
         //Methods
         bool isUsed();
@@ -27,9 +27,10 @@ class Window
 
     private:
         //Student object that holds the student currently at the window
-        Student *m_student;
+        Student m_student;
         //Integer that holds the amount of time that the window has been idle
         int m_idleTime;
+        bool hasStudent;
         
         
 };

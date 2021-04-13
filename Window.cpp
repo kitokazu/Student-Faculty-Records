@@ -7,15 +7,16 @@ using namespace std;
 Window::Window()
 {
     m_idleTime = 0;
-    m_student = 0;
+    m_student = Student(-1,-1);
+    hasStudent = false;
 }
 //Deconstructor
 Window::~Window()
 {
-    delete m_student;
+    //delete m_student;
 }
 //Getters
-Student* Window::getStudent()
+Student Window::getStudent()
 {
     return m_student;
 }
@@ -24,9 +25,10 @@ int Window::getIdleTime()
     return m_idleTime;
 }
 //Setters
-void Window::setStudent(Student *student)
+void Window::setStudent(Student student)
 {
     m_student = student;
+    hasStudent = true;
 }
 void Window::setIdleTime(int time)
 {
@@ -36,30 +38,32 @@ void Window::setIdleTime(int time)
 //Checks if the window is being used or not
 bool Window::isUsed()
 {
-    if(m_student == 0)
+    if(hasStudent)
     {
-        return false;
+        return true;
     }
-    return true;
+    return false;
 }
 //Decrements the time left on the student at this window or increases the idle time for the window
 bool Window::Decrement()
 {
-    if(m_student == 0)
+    if(!hasStudent)
     {
         m_idleTime++;
+        return true;
     }
     else
     {
         //If time is 0 student = null else remove one tick from student 
-        if(m_student->getTimeLeft() == 0)
+        if(m_student.getTimeLeft() == 0)
         {
+            hasStudent = false;
             return false;
-            
         }
         else
         {
-            m_student->setTimeLeft(m_student->getTimeLeft()-1);
+            cout << "Decreasing Time to: " << m_student.getTimeLeft()-1 << endl;
+            m_student.setTimeLeft(m_student.getTimeLeft()-1);
             return true;
         }
         

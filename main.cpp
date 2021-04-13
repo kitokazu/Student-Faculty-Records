@@ -18,9 +18,13 @@ int main(int argc, char **agrv) {
 
     
     vector<Student> s;
-    s.push_back(Student(1,0));
-    s.push_back(Student(1,1));
-    s.push_back(Student(2,2));
-    Registrar *r = new Registrar(2); 
+    Student st = Student(5,1);
+    Student stu = Student(10,1);
+    Student stud = Student(4,3);
+    
+    s.push_back(st);
+    s.push_back(stu);
+    s.push_back(stud);
+    Registrar *r = new Registrar(5); 
     r->RunSimulation(s);
 }

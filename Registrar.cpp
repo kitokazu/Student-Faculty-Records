@@ -52,13 +52,15 @@ void Registrar::RunSimulation(vector<Student> students)
         //If a window is open put that student there
         for (int i = 0; i < m_windows.size(); i++)
         {
-            if(!m_windows.at(i).isUsed())
+            //if any window is open and people are in line
+            if(!m_windows.at(i).isUsed() && !m_waitingQueue->isEmpty())
             {
                 cout << "Adding Student to Window"<<endl;
 
                 //If the window is not used then remove the first person waiting and add them to the open window
                 Student s = m_waitingQueue->remove();
-                m_windows.at(i).setStudent(&s);
+                m_windows.at(i).setStudent(s);
+                
             }
         }
         //Carry out Tick
@@ -69,12 +71,10 @@ void Registrar::RunSimulation(vector<Student> students)
             //If the person has 0 ticks left then they leave the window which is signified by Decrement returning false
             if(!m_windows.at(i).Decrement())
             {
-                cout << "Removing Student to Window"<<endl;
+                cout << "Removing Student to Window: "<<m_windows.at(i).getStudent().getTotalTime() <<endl;
                 //The student now leaves the window and is added to the total students vector
                 //The window is now open
-                m_students.push_back(*(m_windows.at(i).getStudent()));
-                //Removes student from window
-                m_windows.at(i).setStudent(0);
+                m_students.push_back(m_windows.at(i).getStudent());
             }
         }
         //Add Waiting time to the students waiting in line 
@@ -86,7 +86,7 @@ void Registrar::RunSimulation(vector<Student> students)
         m_time++;
         sleep(2);
     }
-    while(!windowsAreEmpty() || !m_waitingQueue->isEmpty());
+    while(!windowsAreEmpty() || !m_waitingQueue->isEmpty() || m_students.size() != students.size());
     
     
 
