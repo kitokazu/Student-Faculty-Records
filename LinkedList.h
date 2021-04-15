@@ -1,3 +1,8 @@
+//Name: Luke Driscoll, Kai Itokazu
+//Student ID Number: 2344496, 2344742
+//Student Email: ldriscoll@chapman.edu, itokazu@chapman.edu
+//Class: CPSC-350-01 - Prof. German
+//Assignment 5: Registrars Office
 #ifndef LINKEDLIST_H
 #define LINKEDLIST_H
 
@@ -43,7 +48,7 @@ class DoublyLinkedList : List<T>
     private:
         ListNode<T> *front;
         ListNode<T> *back;
-        size_t listSize;
+        int listSize;
     public:
         DoublyLinkedList();
         ~DoublyLinkedList();
@@ -55,7 +60,7 @@ class DoublyLinkedList : List<T>
         virtual T remove(T key);
         virtual int find(T value);
         virtual bool isEmpty();
-        virtual size_t getSize();
+        virtual int getSize();
         //virtual void printList(bool printLink);
 };
 
@@ -253,8 +258,8 @@ void DoublyLinkedList<T>::clearList() {
 }
 
 template <typename T>
-size_t DoublyLinkedList<T>::getSize() {
-    
+int DoublyLinkedList<T>::getSize() {
+    return listSize;
 }
 
 #endif

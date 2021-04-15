@@ -1,3 +1,8 @@
+//Name: Luke Driscoll, Kai Itokazu
+//Student ID Number: 2344496, 2344742
+//Student Email: ldriscoll@chapman.edu, itokazu@chapman.edu
+//Class: CPSC-350-01 - Prof. German
+//Assignment 5: Registrars Office
 #include "FileProcessor.h"
 #include "Registrar.h"
 #include "Student.h"
@@ -40,26 +45,22 @@ void FileProcessor::getFile(string inputFile) {
 
     //the string windows converted into an int
     int num_windows = stoi(windows);
-    cout << "Windows: " << num_windows << endl;
 
     //Goes through the file
     while(getline(inFS, fileSentence)) {
 
         //First line it sees is the arriving time 
         int tempTime = stoi(fileSentence);
-        cout << "Time: " << tempTime << endl;
         
         //The next line is the number of students, given time
         getline(inFS, fileSentence);
         int numStudents = stoi(fileSentence);
-        cout << "Number of Students: " << numStudents << endl;
 
         //The next few lines are dependent on the number of students
         //Getting each student time depending on number of students
         for (int i = 0; i < numStudents; ++i) {
             getline(inFS, fileSentence);
             int studentTime = stoi(fileSentence);
-            cout << "Student Time: " << studentTime << endl;
 
             //Once it knows the arriving time and student time,
             //We can push it onto a new variable
@@ -74,7 +75,7 @@ void FileProcessor::getFile(string inputFile) {
     Registrar *r = new Registrar(num_windows); 
     //Takes the vector of students as a parameter
     r->RunSimulation(s);
-
+    r->calculateStatistics();
 
     if (!inFS.eof()) {
         cout << "input failure" << endl;

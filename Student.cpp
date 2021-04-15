@@ -1,3 +1,8 @@
+//Name: Luke Driscoll, Kai Itokazu
+//Student ID Number: 2344496, 2344742
+//Student Email: ldriscoll@chapman.edu, itokazu@chapman.edu
+//Class: CPSC-350-01 - Prof. German
+//Assignment 5: Registrars Office
 #include <iostream>
 #include "Student.h"
 
@@ -60,7 +65,7 @@ bool Student::operator == (Student s)
 }
 bool Student::operator != (Student s)
 {
-    //Checks if the variables are the same
+    //Checks if the variables are not the same
     if((m_timeArriving != s.m_timeArriving) || (m_timeLeft != s.m_timeLeft) || (m_totalTime != s.m_totalTime) || (m_timeWaiting != s.m_timeWaiting))
     {
         return true;
